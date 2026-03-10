@@ -1,0 +1,54 @@
+QUESTION 1 : "VALID ANAGRAM"
+
+class Solution {
+
+    public boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        char[] a = s.toCharArray();
+        char[] b = t.toCharArray();
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        return Arrays.equals(a, b);
+    }
+}
+
+
+QUESTION 2 : "Replace Elements With Greatest Element On Right Side" 
+
+class Solution {
+    public int[] replaceElements(int[] arr) {
+       int n = arr.length;
+       int maxright = -1;
+       for (int i=n-1;i>=0;i--)
+       {
+        int current = arr[i];
+        arr[i] = maxright;
+        maxright = Math.max(maxright,current);
+       }
+       return arr;
+    }
+}
+
+
+QUESTION 3 :"Is Subsequence"
+
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int i = 0; int j= 0;
+        while(i<s.length() && j<t.length()) {
+            if(s.charAt(i) == t.charAt(j))
+            {
+                i++;
+            }
+            j++;
+        }
+        return i == s.length() ;
+    }
+
+}
